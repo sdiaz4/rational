@@ -1,24 +1,25 @@
-﻿// rational.h : Header file for your target.
-
+﻿// rational.hpp : Header file for your target.
+#include <iostream>
 #pragma once
 
 class Rational {
 
 public:
+
+	Rational();
+	Rational(int numerator, int denominator);
 	
-	Rational() {}
-	Rational(int numerator = 0, int denominator = 1) {}
 
-	int getDenominator() const;
-	int getNumerator() const;
+	int dem() const;
+	int num() const;
 
-	void setDenominator(int d);
-
-	void setNumerator(int n);
+	void dem(int d);
+	void num(int n);
 
 private:
 
-	int denominator;
 	int numerator;
+	int denominator;
+	
 
 };
