@@ -1,8 +1,23 @@
-﻿// rational.h : Include file for standard system include files,
-// or project specific include files.
+﻿#pragma once
 
-#pragma once
 
-#include <iostream>
+class Rational {
 
-// TODO: Reference additional headers your program requires here.
+public:
+	Rational();
+	Rational(int numerator, int denominator);
+
+	int getDenominator() const;
+	int getNumerator() const;
+
+	void setDenominator(int d);
+	void setNumerator(int n);
+
+
+private:
+	int denominator;
+	int numerator;
+
+
+
+};
