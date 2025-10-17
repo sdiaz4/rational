@@ -1,7 +1,8 @@
-﻿#include "rational.hpp"
+﻿// rational.cpp : Source file for your target.
+//
 
-Rational::Rational() {}
-Rational::Rational(int numerator = 0, int denominator = 1) {}
+#include "rational.hpp"
+
 
 int Rational::getDenominator() const {
 	return denominator;
@@ -11,7 +12,9 @@ int Rational::getNumerator() const {
 }
 
 void Rational::setDenominator(int d) {
-
+	if (d != 0) {
+		denominator = d;
+	}
 }
 void Rational::setNumerator(int n) {
 
