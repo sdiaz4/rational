@@ -4,7 +4,7 @@
 TEST(DefaultCtor, rightValues) {
 	Rational d;
 
-	EXPECT_EQ(d.dem(), 1);
+	EXPECT_EQ(d.den(), 1);
 	EXPECT_EQ(d.num(), 0);
 
 }
@@ -15,15 +15,63 @@ TEST(ValueCtor, rightValues) {
 	Rational d(1, 3);
 	
 	EXPECT_EQ(d.num(), 1);
-	EXPECT_EQ(d.dem(), 3);
+	EXPECT_EQ(d.den(), 3);
 	
 }
 
-/*
-TEST(Setters, rightValues) {
+TEST(ValueCtor, Error) {
+
+	EXPECT_ANY_THROW(Rational d(1, 0));
 
 }
 
+TEST(ValueCtor, ZeroNum) {
+
+	Rational d{ 1, -3 };
+
+	EXPECT_EQ(d.num(), -1);
+	EXPECT_EQ(d.den(), 3);
+
+
+}
+
+TEST(ValueCtor, DenOne) {
+
+	Rational d{ 0, 4 };
+
+	EXPECT_EQ(d.den(), 1);
+	EXPECT_EQ(d.num(), 0);
+
+}
+
+
+TEST(Setters, rightValues) {
+	Rational d;
+
+	d.den(2);
+	EXPECT_EQ(d.den(), 2);
+
+	d.num(4);
+	EXPECT_EQ(d.num(), 4);
+}
+
+TEST(Setters, ChecksZero) {
+	Rational d;
+
+	EXPECT_ANY_THROW(d.den(0));
+}
+
+TEST(Setters, ChecksNeg) {
+	Rational d;
+
+	d.num(1);
+	d.den(-3);
+
+	EXPECT_EQ(d.den(), 3);
+	EXPECT_EQ(d.num(), -1);
+}
+
+/*
 TEST(MathOps, rightValues) {
 
 }

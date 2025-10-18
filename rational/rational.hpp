@@ -10,10 +10,10 @@ public:
 	Rational(int numerator, int denominator);
 	
 
-	int dem() const;
+	int den() const;
 	int num() const;
 
-	void dem(int d);
+	void den(int d);
 	void num(int n);
 
 private:

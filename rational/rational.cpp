@@ -8,34 +8,60 @@ Rational::Rational() : numerator(0), denominator(1) {}
 
 Rational::Rational(int num, int den) {
 
-	numerator = num;
-	if (denominator == 0) {
+	if (den < 0) {
+		den *= -1;
+		num *= -1;
+	}
+
+	if (den == 0) {
 		throw std::domain_error("Denominator can not be zero");
 	}
 	else {
 		denominator = den;
 	}
+
+	if (num == 0) {
+		numerator = num;
+		denominator = 1;
+	}
+	else {
+		numerator = num;
+	}
+	
 	
 }
 
 
-int Rational::dem() const {
+int Rational::den() const {
 	return denominator;
 }
 int Rational::num() const {
 	return numerator;
 }
 
-void Rational::dem(int d) {
-	if (d != 0) {
+void Rational::den(int d) {
+	if (d == 0) {
+		throw std::domain_error("Denominator can not be zero"); 
+	}
+	else if (d < 0) {
+		d *= -1;
 		denominator = d;
+		numerator *= -1;
+		
 	}
 	else {
-		std::cout << "Denominator can not be zero";
+		denominator = d;
 	}
 		
 }
 void Rational::num(int n) {
-	numerator = n;
+	if (n == 0) {
+		numerator = n;
+		denominator = 1;
+	}
+	else {
+		numerator = n;
+	}
+	
 }
 
