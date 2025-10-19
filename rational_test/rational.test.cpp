@@ -84,13 +84,38 @@ TEST(Setters, ChecksNeg) {
 
 
 
-TEST(MathOps, rightValues) {
+TEST(MathOps, Addition) {
 	Rational a{ 1, 2 };
 	Rational b{ 1, 2 };
 	Rational result = a + b;
 	EXPECT_EQ(result.num(), 1);
 	EXPECT_EQ(result.den(), 1);
 }
+
+TEST(MathOps, Subtraction) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 2 };
+	Rational result = a - b;
+	EXPECT_EQ(result.num(), 0);
+	EXPECT_EQ(result.den(), 1);
+}
+
+TEST(MathOps, Multiplication) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 2 };
+	Rational result = a * b;
+	EXPECT_EQ(result.num(), 1);
+	EXPECT_EQ(result.den(), 4);
+}
+
+TEST(MathOps, Division) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 2 };
+	Rational result = a / b;
+	EXPECT_EQ(result.num(), 1);
+	EXPECT_EQ(result.den(), 1);
+}
+
 /*
 TEST(MathAssignOps, rightValues) {
 

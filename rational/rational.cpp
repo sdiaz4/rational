@@ -110,7 +110,30 @@ Rational Rational::operator+(const Rational& rationalB) {
 	
 	return Rational (num, den);
 }
-//Rational operator-(const Rational& rationalB);
-//Rational operator*(const Rational& rationalB);
-//Rational operator/(const Rational& rationalB);
+
+Rational Rational::operator-(const Rational& rationalB) {
+	int lcm = LCM(denominator, rationalB.den());
+
+	int multipleA = lcm / denominator;
+	int multipleB = lcm / rationalB.den();
+
+	int den = lcm;
+	int num = (numerator * multipleA) - (rationalB.num() * multipleB);
+
+	return Rational(num, den);
+}
+
+Rational Rational::operator*(const Rational& rationalB) {
+	int num = numerator * rationalB.num();
+	int den = denominator * rationalB.den();
+
+	return Rational(num, den);
+}
+
+Rational Rational::operator/(const Rational& rationalB) {
+	int num = numerator * rationalB.den();
+	int den = denominator * rationalB.num();
+
+	return Rational(num, den);
+}
 
