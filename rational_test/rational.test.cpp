@@ -116,11 +116,38 @@ TEST(MathOps, Division) {
 	EXPECT_EQ(result.den(), 1);
 }
 
-/*
-TEST(MathAssignOps, rightValues) {
-
+TEST(MathAssignOps, PlusEquals) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 2 };
+	a += b;
+	EXPECT_EQ(a.num(), 1);
+	EXPECT_EQ(a.den(), 1);
 }
 
+TEST(MathAssignOps, MinusEquals) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 2 };
+	a -= b;
+	EXPECT_EQ(a.num(), 0);
+	EXPECT_EQ(a.den(), 1);
+}
+
+TEST(MathAssignOps, TimesEquals) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 2 };
+	a *= b;
+	EXPECT_EQ(a.num(), 1);
+	EXPECT_EQ(a.den(), 4);
+}
+TEST(MathAssignOps, DividEquals) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 2 };
+	a /= b;
+	EXPECT_EQ(a.num(), 1);
+	EXPECT_EQ(a.den(), 1);
+}
+
+/*
 TEST(CompareOp, rightValues) {
 
 }

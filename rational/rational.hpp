@@ -20,8 +20,21 @@ public:
 	Rational operator-(const Rational& rationalB);
 	Rational operator*(const Rational& rationalB);
 	Rational operator/(const Rational& rationalB);
+	Rational operator +() const;
+	Rational operator -() const;
 
-	
+	Rational& operator +=(Rational const& src);
+    Rational& operator -=(Rational const& src);
+    Rational& operator *=(Rational const& src);
+    Rational& operator /=(Rational const& src);
+    
+
+	bool operator ==(Rational const& rhs) const;
+	bool operator !=(Rational const& rhs) const;
+	bool operator < (Rational const& rhs) const;
+	bool operator >=(Rational const& rhs) const;
+	bool operator > (Rational const& rhs) const;
+	bool operator <=(Rational const& rhs) const;
 
 private:
 
@@ -41,5 +54,6 @@ private:
 	void numZero(int &n, int &d);
 
 	int LCM(int num, int den);
+
 
 };

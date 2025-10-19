@@ -137,3 +137,54 @@ Rational Rational::operator/(const Rational& rationalB) {
 	return Rational(num, den);
 }
 
+Rational Rational::operator +() const {
+	return *this;
+}
+
+Rational Rational::operator -() const {
+	return Rational(-numerator, denominator);
+}
+
+Rational& Rational::operator +=(Rational const& src) {
+	int lcm = LCM(denominator, src.den());
+
+	int multipleA = lcm / denominator;
+	int multipleB = lcm / src.den();
+
+	denominator = lcm;
+	numerator = (numerator * multipleA) + (src.num() * multipleB);
+
+	simplify(numerator, denominator);
+
+	return *this;
+}
+Rational& Rational::operator -=(Rational const& src) {
+	int lcm = LCM(denominator, src.den());
+
+	int multipleA = lcm / denominator;
+	int multipleB = lcm / src.den();
+
+	denominator = lcm;
+	numerator = (numerator * multipleA) - (src.num() * multipleB);
+
+	simplify(numerator, denominator);
+
+	return *this;
+}
+Rational& Rational::operator *=(Rational const& src) {
+	numerator = numerator * src.num();
+	denominator = denominator * src.den();
+
+	simplify(numerator, denominator);
+
+	return *this;
+}
+Rational& Rational::operator /=(Rational const& src) {
+	numerator = numerator * src.den();
+	denominator = denominator * src.num();
+
+	simplify(numerator, denominator);
+
+	return *this;
+}
+
