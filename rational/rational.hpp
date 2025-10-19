@@ -58,8 +58,6 @@ private:
 	
 	int GCF(int num, int den) const;
 
-	bool denNotZero(int d) const;
-
 	void denNotNeg(int& d, int& n);
 	
 	void numZero(int &n, int &d);
