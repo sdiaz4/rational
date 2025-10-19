@@ -28,13 +28,14 @@ void Rational::simplify(int &num, int &den) {
 	numZero(num, den);
 	denNotNeg(num, den);
 
-	int GCF = Rational::GCF(num, den);
-	num /= GCF;
-	den /= GCF;
+	int gcf = Rational::GCF(num, den);
+	num /= gcf;
+	den /= gcf;
 }
 
 int Rational::GCF(int num, int den) const {
-	if (denNotZero(den)) {
+		denNotZero(den);
+
 		if (num < 0) {
 			num *= -1;
 		}
@@ -47,8 +48,20 @@ int Rational::GCF(int num, int den) const {
 		}
 		else
 			return GCF(den, num % den);
+}
+
+int Rational::LCM(int num, int den) {
+	denNotZero(den);
+
+	if (num < 0) {
+		num *= -1;
 	}
-	
+	if (den < 0) {
+		den *= -1;
+	}
+
+	int LCM = num / GCF(num, den) * den;
+	return LCM;
 }
 
 
@@ -85,4 +98,19 @@ void Rational::num(int n) {
 	numerator = n;
 	simplify(numerator, denominator);
 }
+
+Rational Rational::operator+(const Rational& rationalB) {
+	int lcm = LCM(denominator, rationalB.den());
+	 
+	int multipleA = lcm / denominator;
+	int multipleB = lcm / rationalB.den();
+
+	int den = lcm;
+	int num = (numerator * multipleA) + (rationalB.num() * multipleB);
+	
+	return Rational (num, den);
+}
+//Rational operator-(const Rational& rationalB);
+//Rational operator*(const Rational& rationalB);
+//Rational operator/(const Rational& rationalB);
 

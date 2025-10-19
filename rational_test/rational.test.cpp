@@ -83,11 +83,15 @@ TEST(Setters, ChecksNeg) {
 
 
 
-/*
+
 TEST(MathOps, rightValues) {
-
+	Rational a{ 1, 2 };
+	Rational b{ 1, 2 };
+	Rational result = a + b;
+	EXPECT_EQ(result.num(), 1);
+	EXPECT_EQ(result.den(), 1);
 }
-
+/*
 TEST(MathAssignOps, rightValues) {
 
 }

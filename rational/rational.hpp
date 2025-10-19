@@ -16,9 +16,12 @@ public:
 	void den(int d);
 	void num(int n);
 
-	Rational operator+(const Rational& a);
+	Rational operator+(const Rational& rationalB);
+	Rational operator-(const Rational& rationalB);
+	Rational operator*(const Rational& rationalB);
+	Rational operator/(const Rational& rationalB);
 
-	Rational operator==(const Rational& a);
+	
 
 private:
 
@@ -36,4 +39,7 @@ private:
 	void denNotNeg(int& d, int& n);
 	
 	void numZero(int &n, int &d);
+
+	int LCM(int num, int den);
+
 };
