@@ -80,6 +80,17 @@ TEST(Setters, ChecksNeg) {
 	EXPECT_EQ(d.den(), 3);
 	EXPECT_EQ(d.num(), -1);
 }
+TEST(Setters, rightValues) {
+	Rational d;
+	d.num(4);
+	d.den(2);
+
+	EXPECT_EQ(d.den(), 1);
+	EXPECT_EQ(d.num(), 2);
+
+	
+}
+
 
 
 TEST(MathOps, Addition) {

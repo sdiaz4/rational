@@ -62,7 +62,6 @@ int Rational::LCM(int num, int den) {
 Rational::Rational() : numerator(0), denominator(1) {}
 Rational::Rational(int n) : numerator(n), denominator(1) {}
 Rational::Rational(double d) {
-	const int doubleBase = 1000000;
 	numerator = (int)(d * doubleBase);
 	denominator = doubleBase;
 
@@ -73,7 +72,7 @@ Rational::operator int() const {
 	return numerator / denominator;
 }
 Rational::operator double() const {
-	return (double)numerator / (double)denominator;
+	return (double)numerator / denominator;
 }
 Rational::Rational(int num, int den) {
 
@@ -95,18 +94,11 @@ int Rational::num() const {
 }
 
 void Rational::den(int d) {
-	int den, num;
-	den = d;
-	num = numerator;
-
-	if (den == 0) {
-		throw std::domain_error("Denominator can not be zero");
-	}
-	
-	simplify(num, den);
-	numerator = num;
-	denominator = den;
-		
+	if (denNotZero(d))
+	{
+		denominator = d;
+		simplify(numerator, denominator);
+	}	
 }
 void Rational::num(int n) {
 	numerator = n;
