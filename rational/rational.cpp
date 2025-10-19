@@ -9,21 +9,18 @@ void Rational::numZero(int &n, int &d) {
 		d = 1;
 	}
 }
-
 void Rational::denNotNeg(int &n, int &d) {
 	if (d < 0) {
 		d *= -1;
 		n *= -1;
 	}
 }
-
 bool Rational::denNotZero(int d) const {
 	if (d == 0) {
 		throw std::domain_error("Denominator can not be zero");
 	}
 	else return true;
 }
-
 void Rational::simplify(int &num, int &den) {
 	numZero(num, den);
 	denNotNeg(num, den);
@@ -32,7 +29,6 @@ void Rational::simplify(int &num, int &den) {
 	num /= gcf;
 	den /= gcf;
 }
-
 int Rational::GCF(int num, int den) const {
 		denNotZero(den);
 
@@ -49,7 +45,6 @@ int Rational::GCF(int num, int den) const {
 		else
 			return GCF(den, num % den);
 }
-
 int Rational::LCM(int num, int den) {
 	denNotZero(den);
 
@@ -63,8 +58,6 @@ int Rational::LCM(int num, int den) {
 	int LCM = num / GCF(num, den) * den;
 	return LCM;
 }
-
-
 
 Rational::Rational() : numerator(0), denominator(1) {}
 Rational::Rational(int n) : numerator(n), denominator(1) {}
@@ -81,7 +74,6 @@ Rational::operator int() const {
 Rational::operator double() const {
 	return (double)numerator / denominator;
 }
-
 Rational::Rational(int num, int den) {
 
 	if (denNotZero(den)) {
@@ -102,11 +94,18 @@ int Rational::num() const {
 }
 
 void Rational::den(int d) {
-	if (denNotZero(d))
-	{
-		denominator = d;
-		simplify(numerator, denominator);
-	}	
+	int den, num;
+	den = d;
+	num = numerator;
+
+	if (den == 0) {
+		throw std::domain_error("Denominator can not be zero");
+	}
+	
+	simplify(num, den);
+	numerator = num;
+	denominator = den;
+		
 }
 void Rational::num(int n) {
 	numerator = n;

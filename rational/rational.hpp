@@ -54,8 +54,6 @@ private:
 	int numerator;
 	int denominator;
 
-	int n = 0;
-
 	void simplify(int& num, int& den);
 	
 	int GCF(int num, int den) const;

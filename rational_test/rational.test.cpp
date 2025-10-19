@@ -83,7 +83,6 @@ TEST(Setters, ChecksNeg) {
 
 
 
-
 TEST(MathOps, Addition) {
 	Rational a{ 1, 2 };
 	Rational b{ 1, 2 };
