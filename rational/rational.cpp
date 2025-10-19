@@ -242,7 +242,3 @@ std::istream& operator >>(std::istream& in, Rational& Rational) {
 	return in;
 }
 
-inline
-bool operator ==(int const& lhs, Rational const& rhs) {
-	return rhs == lhs;
-}
