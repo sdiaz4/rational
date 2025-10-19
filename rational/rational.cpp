@@ -62,6 +62,7 @@ int Rational::LCM(int num, int den) {
 Rational::Rational() : numerator(0), denominator(1) {}
 Rational::Rational(int n) : numerator(n), denominator(1) {}
 Rational::Rational(double d) {
+	const int doubleBase = 1000000;
 	numerator = (int)(d * doubleBase);
 	denominator = doubleBase;
 

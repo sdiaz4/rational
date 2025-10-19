@@ -6,7 +6,6 @@ class Rational {
 
 public:
 
-	static const int doubleBase  = 1000000;
 
 	Rational();
 	Rational(int numerator, int denominator);
