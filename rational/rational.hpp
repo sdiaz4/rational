@@ -12,8 +12,8 @@ public:
 	Rational(int numerator, int denominator);
 	Rational(int n);
 	Rational(double d);
-	explicit operator int() const;
-	explicit operator double() const;
+	operator int() const;
+	operator double() const;
 
 
 	int den() const;
