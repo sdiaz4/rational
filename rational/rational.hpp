@@ -6,6 +6,8 @@ class Rational {
 
 public:
 
+	static const int doubleBase  = 1000000;
+
 	Rational();
 	Rational(int numerator, int denominator);
 	
@@ -22,6 +24,10 @@ public:
 	Rational operator/(const Rational& rationalB);
 	Rational operator +() const;
 	Rational operator -() const;
+	Rational& operator ++();
+	Rational& operator --();
+	Rational operator ++(int);
+	Rational operator --(int);
 
 	Rational& operator +=(Rational const& src);
     Rational& operator -=(Rational const& src);

@@ -140,6 +140,28 @@ Rational Rational::operator +() const {
 Rational Rational::operator -() const {
 	return Rational(-numerator, denominator);
 }
+//Prefix
+Rational& Rational::operator ++() {
+	numerator += denominator;
+	simplify(numerator, denominator);
+	return *this;
+}
+Rational& Rational::operator --() {
+	numerator -= denominator;
+	simplify(numerator, denominator);
+	return *this;
+}
+//Postfix
+Rational Rational::operator ++(int) {
+	Rational i = *this;
+	++(*this);
+	return i;
+}
+Rational Rational::operator --(int) {
+	Rational i = *this;
+	--(*this);
+	return i;
+}
 
 //MATHASSIGNMENTOPS
 Rational& Rational::operator +=(Rational const& src) {
