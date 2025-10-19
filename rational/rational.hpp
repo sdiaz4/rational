@@ -16,6 +16,7 @@ public:
 	operator double() const;
 
 
+
 	int den() const;
 	int num() const;
 

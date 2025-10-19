@@ -72,7 +72,7 @@ Rational::operator int() const {
 	return numerator / denominator;
 }
 Rational::operator double() const {
-	return (double)numerator / denominator;
+	return (double)numerator / (double)denominator;
 }
 Rational::Rational(int num, int den) {
 
