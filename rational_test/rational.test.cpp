@@ -44,15 +44,25 @@ TEST(ValueCtor, DenOne) {
 
 }
 
+TEST(ValueCtor, Simplify) {
+
+	Rational d{ 30, 60 };
+
+	EXPECT_EQ(d.den(), 2);
+	EXPECT_EQ(d.num(), 1);
+
+}
+
 
 TEST(Setters, rightValues) {
 	Rational d;
-
-	d.den(2);
-	EXPECT_EQ(d.den(), 2);
-
 	d.num(4);
-	EXPECT_EQ(d.num(), 4);
+	d.den(2);
+
+	EXPECT_EQ(d.den(), 1);
+	EXPECT_EQ(d.num(), 2);
+
+	
 }
 
 TEST(Setters, ChecksZero) {
@@ -70,6 +80,8 @@ TEST(Setters, ChecksNeg) {
 	EXPECT_EQ(d.den(), 3);
 	EXPECT_EQ(d.num(), -1);
 }
+
+
 
 /*
 TEST(MathOps, rightValues) {

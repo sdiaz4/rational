@@ -4,30 +4,65 @@
 #include <iostream>
 #include <string>
 
+void Rational::numZero(int &n, int &d) {
+	if (n == 0) {
+		d = 1;
+	}
+}
+
+void Rational::denNotNeg(int &n, int &d) {
+	if (d < 0) {
+		d *= -1;
+		n *= -1;
+	}
+}
+
+bool Rational::denNotZero(int d) const {
+	if (d == 0) {
+		throw std::domain_error("Denominator can not be zero");
+	}
+	else return true;
+}
+
+void Rational::simplify(int &num, int &den) {
+	numZero(num, den);
+	denNotNeg(num, den);
+
+	int GCF = Rational::GCF(num, den);
+	num /= GCF;
+	den /= GCF;
+}
+
+int Rational::GCF(int num, int den) const {
+	if (denNotZero(den)) {
+		if (num < 0) {
+			num *= -1;
+		}
+		if (den < 0) {
+			den *= -1;
+		}
+
+		if (num % den == 0) {
+			return den;
+		}
+		else
+			return GCF(den, num % den);
+	}
+	
+}
+
+
+
 Rational::Rational() : numerator(0), denominator(1) {}
 
 Rational::Rational(int num, int den) {
 
-	if (den < 0) {
-		den *= -1;
-		num *= -1;
-	}
-
-	if (den == 0) {
-		throw std::domain_error("Denominator can not be zero");
-	}
-	else {
+	if (denNotZero(den)) {
+		numerator = num;
 		denominator = den;
+		simplify(numerator, denominator);
 	}
 
-	if (num == 0) {
-		numerator = num;
-		denominator = 1;
-	}
-	else {
-		numerator = num;
-	}
-	
 	
 }
 
@@ -40,28 +75,14 @@ int Rational::num() const {
 }
 
 void Rational::den(int d) {
-	if (d == 0) {
-		throw std::domain_error("Denominator can not be zero"); 
-	}
-	else if (d < 0) {
-		d *= -1;
+	if (denNotZero(d))
+	{
 		denominator = d;
-		numerator *= -1;
-		
-	}
-	else {
-		denominator = d;
-	}
-		
+		simplify(numerator, denominator);
+	}	
 }
 void Rational::num(int n) {
-	if (n == 0) {
-		numerator = n;
-		denominator = 1;
-	}
-	else {
-		numerator = n;
-	}
-	
+	numerator = n;
+	simplify(numerator, denominator);
 }
 
