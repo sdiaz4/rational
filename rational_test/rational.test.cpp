@@ -147,11 +147,48 @@ TEST(MathAssignOps, DividEquals) {
 	EXPECT_EQ(a.den(), 1);
 }
 
-/*
-TEST(CompareOp, rightValues) {
 
+TEST(CompareOp, EqualTo) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 2 };
+	EXPECT_TRUE(a == b);
 }
-
+TEST(CompareOp, NotEqualTo) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 3 };
+	EXPECT_TRUE(a != b);
+}
+TEST(CompareOp, LessThan) {
+	Rational a{ 1, 3 };
+	Rational b{ 1, 2 };
+	EXPECT_TRUE(a < b);
+}
+TEST(CompareOp, GreaterThanEqualTo) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 3 };
+	EXPECT_TRUE(a >= b);
+}
+TEST(CompareOp, GreaterThanEqualToEqual) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 2 };
+	EXPECT_TRUE(a >= b);
+}
+TEST(CompareOp, GreaterThan) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 3 };
+	EXPECT_TRUE(a > b);
+}
+TEST(CompareOp, LessThanEqualTo) {
+	Rational a{ 1, 3 };
+	Rational b{ 1, 2 };
+	EXPECT_TRUE(a <= b);
+}
+TEST(CompareOp, LessThanEqualToEqual) {
+	Rational a{ 1, 2 };
+	Rational b{ 1, 2 };
+	EXPECT_TRUE(a <= b);
+}
+/*
 TEST(ConvertOps, rightValues) {
 
 }

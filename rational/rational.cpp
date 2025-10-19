@@ -99,6 +99,7 @@ void Rational::num(int n) {
 	simplify(numerator, denominator);
 }
 
+//MATHOPS
 Rational Rational::operator+(const Rational& rationalB) {
 	int lcm = LCM(denominator, rationalB.den());
 	 
@@ -110,7 +111,6 @@ Rational Rational::operator+(const Rational& rationalB) {
 	
 	return Rational (num, den);
 }
-
 Rational Rational::operator-(const Rational& rationalB) {
 	int lcm = LCM(denominator, rationalB.den());
 
@@ -122,29 +122,26 @@ Rational Rational::operator-(const Rational& rationalB) {
 
 	return Rational(num, den);
 }
-
 Rational Rational::operator*(const Rational& rationalB) {
 	int num = numerator * rationalB.num();
 	int den = denominator * rationalB.den();
 
 	return Rational(num, den);
 }
-
 Rational Rational::operator/(const Rational& rationalB) {
 	int num = numerator * rationalB.den();
 	int den = denominator * rationalB.num();
 
 	return Rational(num, den);
 }
-
 Rational Rational::operator +() const {
 	return *this;
 }
-
 Rational Rational::operator -() const {
 	return Rational(-numerator, denominator);
 }
 
+//MATHASSIGNMENTOPS
 Rational& Rational::operator +=(Rational const& src) {
 	int lcm = LCM(denominator, src.den());
 
@@ -186,5 +183,25 @@ Rational& Rational::operator /=(Rational const& src) {
 	simplify(numerator, denominator);
 
 	return *this;
+}
+
+//COMPAREOPS
+bool Rational::operator ==(Rational const& rhs) const {
+	return ((denominator == rhs.den()) && (numerator == rhs.num()));
+}
+bool Rational::operator !=(Rational const& rhs) const {
+	return ((denominator != rhs.den()) || (numerator != rhs.num()));
+}
+bool Rational::operator < (Rational const& rhs) const {
+	return (numerator * rhs.den() < denominator * rhs.num());
+}
+bool Rational::operator >=(Rational const& rhs) const {
+	return (numerator * rhs.den() >= denominator * rhs.num());
+}
+bool Rational::operator > (Rational const& rhs) const {
+	return (numerator * rhs.den() > denominator * rhs.num());
+}
+bool Rational::operator <=(Rational const& rhs) const {
+	return (numerator * rhs.den() <= denominator * rhs.num());
 }
 
