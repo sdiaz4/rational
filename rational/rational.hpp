@@ -10,7 +10,11 @@ public:
 
 	Rational();
 	Rational(int numerator, int denominator);
-	
+	Rational(int n);
+	Rational(double d);
+	explicit operator int() const;
+	explicit operator double() const;
+
 
 	int den() const;
 	int num() const;
@@ -41,6 +45,9 @@ public:
 	bool operator >=(Rational const& rhs) const;
 	bool operator > (Rational const& rhs) const;
 	bool operator <=(Rational const& rhs) const;
+
+	friend std::ostream& operator <<(std::ostream& out, Rational const& Rational);
+	friend std::istream& operator >>(std::istream& in, Rational& Rational);
 
 private:
 

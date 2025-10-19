@@ -188,12 +188,29 @@ TEST(CompareOp, LessThanEqualToEqual) {
 	Rational b{ 1, 2 };
 	EXPECT_TRUE(a <= b);
 }
-/*
-TEST(ConvertOps, rightValues) {
 
+TEST(ConvertOps, Int) {
+	Rational a{ 3 };
+	
+	EXPECT_EQ(a.num(), 3);
+	EXPECT_EQ(a.den(), 1);
 }
 
-TEST(IoOps, rightValues) {
+TEST(ConvertOps, Double) {
+	Rational a{ 3.0 };
 
+	EXPECT_EQ(a.num(), 3);
+	EXPECT_EQ(a.den(), 1);
 }
-*/
+
+
+TEST(IoOps, OutputOne) {
+	Rational a{ 3, 4};
+
+	std::ostringstream out;
+
+	out << a;
+
+	EXPECT_EQ(out.str(), "3/4");
+}
+
