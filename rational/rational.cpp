@@ -49,7 +49,7 @@ int Rational::GCF(int num, int den) const {
 		
 		
 }
-int Rational::LCM(int num, int den) {
+int Rational::LCM(int num, int den) const {
 	if (den == 0) {
 		throw std::domain_error("Denominator can not be zero");
 	}
@@ -116,7 +116,7 @@ void Rational::num(int n) {
 }
 
 //MATHOPS
-Rational Rational::operator+(const Rational& rationalB) {
+Rational Rational::operator+(const Rational& rationalB) const  {
 	int lcm = LCM(denominator, rationalB.den());
 	 
 	int multipleA = lcm / denominator;
@@ -127,7 +127,7 @@ Rational Rational::operator+(const Rational& rationalB) {
 	
 	return Rational (num, den);
 }
-Rational Rational::operator-(const Rational& rationalB) {
+Rational Rational::operator-(const Rational& rationalB) const  {
 	int lcm = LCM(denominator, rationalB.den());
 
 	int multipleA = lcm / denominator;
@@ -138,13 +138,13 @@ Rational Rational::operator-(const Rational& rationalB) {
 
 	return Rational(num, den);
 }
-Rational Rational::operator*(const Rational& rationalB) {
+Rational Rational::operator*(const Rational& rationalB) const {
 	int num = numerator * rationalB.num();
 	int den = denominator * rationalB.den();
 
 	return Rational(num, den);
 }
-Rational Rational::operator/(const Rational& rationalB) {
+Rational Rational::operator/(const Rational& rationalB) const  {
 	int num = numerator * rationalB.den();
 	int den = denominator * rationalB.num();
 

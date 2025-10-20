@@ -22,10 +22,10 @@ public:
 	void den(int d);
 	void num(int n);
 
-	Rational operator+(const Rational& rationalB);
-	Rational operator-(const Rational& rationalB);
-	Rational operator*(const Rational& rationalB);
-	Rational operator/(const Rational& rationalB);
+	Rational operator+(const Rational& rationalB) const;
+	Rational operator-(const Rational& rationalB) const;
+	Rational operator*(const Rational& rationalB) const;
+	Rational operator/(const Rational& rationalB) const;
 	Rational operator +() const;
 	Rational operator -() const;
 	Rational& operator ++();
@@ -63,7 +63,7 @@ private:
 	
 	void numZero(int &n, int &d);
 
-	int LCM(int num, int den);
+	int LCM(int num, int den) const;
 
 
 };
