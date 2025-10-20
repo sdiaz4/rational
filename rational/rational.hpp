@@ -32,7 +32,7 @@ public:
 	Rational& operator --();
 	Rational operator ++(int);
 	Rational operator --(int);
-	Rational operator=(Rational rhs);
+	
 
 	Rational& operator +=(Rational const& src);
     Rational& operator -=(Rational const& src);
