@@ -3,6 +3,7 @@
 #include "rational.hpp"
 #include <iostream>
 #include <string>
+#include <vector>
 
 void Rational::numZero(int &n, int &d) {
 	if (n == 0) {
@@ -242,18 +243,27 @@ bool Rational::operator > (Rational const& rhs) const {
 bool Rational::operator <=(Rational const& rhs) const {
 	return (numerator * rhs.den() <= denominator * rhs.num());
 }
+
 //IOSTREAM
 std::ostream& operator <<(std::ostream& out, Rational const& Rational) {
 	out << Rational.num() << '/' << Rational.den();
 	return out;
 }
-std::istream& operator >>(std::istream& in, Rational& Rational) {
-	in >> Rational.numerator >> Rational.denominator;
+std::istream& operator >>(std::istream& in, Rational& RationalB) {
+	int num = 0, den = 1;
+	char slash;
+
+	in >> num;
+	if (in >> slash && slash == '/')
+	{
+		in >> den;
+	}
+
+	RationalB = Rational(num, den);
+
 	return in;
+	
 }
-
-//CONVERSIONOPS
-
 
 
 

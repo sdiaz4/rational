@@ -22,10 +22,10 @@ public:
 	void den(int d);
 	void num(int n);
 
-	Rational operator+(const Rational& rationalB) const;
-	Rational operator-(const Rational& rationalB) const;
-	Rational operator*(const Rational& rationalB) const;
-	Rational operator/(const Rational& rationalB) const;
+	Rational operator+(const Rational& rationalB);
+	Rational operator-(const Rational& rationalB);
+	Rational operator*(const Rational& rationalB);
+	Rational operator/(const Rational& rationalB);
 	Rational operator +() const;
 	Rational operator -() const;
 	Rational& operator ++();
@@ -148,3 +148,6 @@ inline
 Rational operator/(double const& lhs, Rational const& rhs) {
 	return (Rational(lhs) / rhs);
 }
+
+
+
