@@ -65,7 +65,7 @@ int Rational::LCM(int num, int den) {
 }
 
 Rational::Rational() : numerator(0), denominator(1) {}
-Rational::Rational(int n) : numerator(n), denominator(1) {}
+Rational::Rational(int n) : numerator(n), denominator(0) {}
 Rational::Rational(double d) {
 	numerator = (int)(d * doubleBase);
 	denominator = doubleBase;
@@ -242,9 +242,9 @@ bool Rational::operator > (Rational const& rhs) const {
 bool Rational::operator <=(Rational const& rhs) const {
 	return (numerator * rhs.den() <= denominator * rhs.num());
 }
-
+//IOSTREAM
 std::ostream& operator <<(std::ostream& out, Rational const& Rational) {
-	out << Rational.num() << "/" << Rational.den();
+	out << Rational.numerator << Rational.denominator;
 	return out;
 }
 std::istream& operator >>(std::istream& in, Rational& Rational) {
