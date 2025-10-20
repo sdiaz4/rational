@@ -25,9 +25,11 @@ void Rational::simplify(int &num, int &den) {
 	denNotNeg(num, den);
 
 	int gcf = GCF(num, den);
+	if (den != 0) {
+		num /= gcf;
+		den /= gcf;
+	}
 	
-	num /= gcf;
-	den /= gcf;
 	
 }
 int Rational::GCF(int num, int den) const {
@@ -104,14 +106,15 @@ int Rational::num() const {
 }
 
 void Rational::den(int d) {
+	int den = denominator;
+	int num = numerator;
+
 	if (d == 0) {
 		throw std::domain_error("Denominator can not be zero");
 	}
 
-	int den = denominator;
-	int num = numerator;
-
 	denominator = d;
+
 	try {
 		simplify(numerator, denominator);
 	}

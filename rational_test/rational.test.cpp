@@ -114,6 +114,13 @@ TEST(Setters, rightValues3) {
 	EXPECT_EQ(d.den(), 2);
 }
 
+TEST(Setters, strong) {
+	Rational r1(1, 3);
+	r1.den(0);   
+	EXPECT_EQ(r1.den(), 3);
+
+}
+
 TEST(MathOps, Addition) {
 	Rational a{ 1, 2 };
 	Rational b{ 1, 2 };
