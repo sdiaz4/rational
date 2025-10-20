@@ -245,10 +245,10 @@ TEST(ConvertOps, DoubleNotEqualRational) {
 
 TEST(IoOps, InputOperator) {
 	std::istringstream in("4/6");
-	Rational r;
-	in >> r;
-	EXPECT_EQ(r.num(), 2);
-	EXPECT_EQ(r.den(), 3);
+	Rational a;
+	in >> a;
+	EXPECT_EQ(a.num(), 2);
+	EXPECT_EQ(a.den(), 3);
 }
 
 TEST(IoOps, OutputOne) {
