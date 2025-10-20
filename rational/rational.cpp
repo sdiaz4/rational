@@ -5,22 +5,23 @@
 #include <string>
 #include <vector>
 
-void Rational::numZero(int &n, int &d) {
+void Rational::numZero(int& n, int& d) {
 	if (n == 0) {
 		d = 1;
 	}
 }
-void Rational::denNotNeg(int &n, int &d) {
+void Rational::denNotNeg(int& n, int& d) {
 	if (d < 0) {
 		d *= -1;
 		n *= -1;
 	}
 }
 
-void Rational::simplify(int &num, int &den) {
+void Rational::simplify(int& num, int& den) {
 	if (den == 0) {
 		throw std::domain_error("Denominator can not be zero");
 	}
+
 	numZero(num, den);
 	denNotNeg(num, den);
 
@@ -33,10 +34,7 @@ void Rational::simplify(int &num, int &den) {
 	
 }
 int Rational::GCF(int num, int den) const {
-	if (den == 0)
-	{
-		throw std::domain_error("Denominator can not be zero");
-	}
+	
 
 		if (num < 0) {
 			num *= -1;
@@ -106,12 +104,13 @@ int Rational::num() const {
 }
 
 void Rational::den(int d) {
+	
+	if (d == 0) {
+		throw std::domain_error("denominator can not be zero");
+	}
+
 	int den = denominator;
 	int num = numerator;
-
-	if (d == 0) {
-		throw std::domain_error("Denominator can not be zero");
-	}
 
 	denominator = d;
 
