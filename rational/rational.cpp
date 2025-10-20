@@ -251,3 +251,46 @@ std::istream& operator >>(std::istream& in, Rational& Rational) {
 	return in;
 }
 
+inline 
+bool operator==(Rational const& lhs, int const& rhs) {
+	return (lhs == rhs);
+}
+inline
+bool operator==(Rational const& lhs, double const& rhs) {
+	return (lhs == rhs);
+}
+inline
+bool operator!=(Rational const& lhs, int const& rhs) {
+	return (lhs != rhs);
+}
+inline
+bool operator!=(Rational const& lhs, double const& rhs) {
+	return (lhs != rhs);
+}
+inline
+bool operator>(Rational const& lhs, int const& rhs) {
+	return (lhs > rhs);
+}
+bool operator>(Rational const& lhs, double const& rhs) {
+	return (lhs > rhs);
+}
+bool operator<(Rational const& lhs, int const& rhs) {
+	return (lhs < rhs);
+}
+bool operator<(Rational const& lhs, double const& rhs) {
+	return (lhs < rhs);
+}
+bool operator<=(Rational const& lhs, int const& rhs) {
+	return (lhs <= rhs);
+}
+bool operator<=(Rational const& lhs, double const& rhs) {
+	return (lhs <= rhs);
+}
+bool operator>=(Rational const& lhs, int const& rhs) {
+	return (lhs >= rhs);
+}
+bool operator>=(Rational const& lhs, double const& rhs) {
+	return (lhs >= rhs);
+}
+
+
