@@ -18,14 +18,17 @@ void Rational::denNotNeg(int &n, int &d) {
 }
 
 void Rational::simplify(int &num, int &den) {
+	if (den == 0) {
+		throw std::domain_error("Denominator can not be zero");
+	}
+
 	numZero(num, den);
 	denNotNeg(num, den);
 
-	int gcf = Rational::GCF(num, den);
-	if (gcf != 0) {
-		num /= gcf;
-		den /= gcf;
-	}
+	int gcf = GCF(num, den);
+	
+	num /= gcf;
+	den /= gcf;
 	
 }
 int Rational::GCF(int num, int den) const {
