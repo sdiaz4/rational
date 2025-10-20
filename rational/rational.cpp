@@ -244,7 +244,7 @@ bool Rational::operator <=(Rational const& rhs) const {
 }
 //IOSTREAM
 std::ostream& operator <<(std::ostream& out, Rational const& Rational) {
-	out << Rational.numerator << Rational.denominator;
+	out << Rational.numerator << '/' << Rational.denominator;
 	return out;
 }
 std::istream& operator >>(std::istream& in, Rational& Rational) {
