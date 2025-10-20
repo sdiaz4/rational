@@ -261,3 +261,4 @@ TEST(IoOps, OutputOne) {
 	EXPECT_EQ(out.str(), "3/4");
 }
 
+

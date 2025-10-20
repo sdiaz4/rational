@@ -253,10 +253,14 @@ std::istream& operator >>(std::istream& in, Rational& RationalB) {
 	int num = 0, den = 1;
 	char slash;
 
-	in >> num;
-	if (in >> slash && slash == '/')
-	{
-		in >> den;
+	if (!(in >> num)) {
+		in.setstate(std::ios::failbit);
+	}
+	if (!(in >> slash)) {
+		in.setstate(std::ios::failbit);
+	}
+	if (!(in >> den)) {
+		in.setstate(std::ios::failbit);
 	}
 
 	RationalB = Rational(num, den);
