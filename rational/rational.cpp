@@ -21,7 +21,6 @@ void Rational::simplify(int &num, int &den) {
 	if (den == 0) {
 		throw std::domain_error("Denominator can not be zero");
 	}
-
 	numZero(num, den);
 	denNotNeg(num, den);
 
