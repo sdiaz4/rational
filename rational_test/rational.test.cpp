@@ -90,6 +90,31 @@ TEST(Setters, Values) {
 	EXPECT_EQ(d.num(), 2);
 }
 
+TEST(Setters, rightValues1) {
+	Rational d;
+	d.den(12);
+
+	EXPECT_EQ(d.den(), 1);
+	EXPECT_EQ(d.num(), 0);
+}
+TEST(Setters, rightValues2) {
+	Rational d;
+	d.num(4);
+
+	EXPECT_EQ(d.den(), 1);
+	EXPECT_EQ(d.num(), 4);
+}
+TEST(Setters, rightValues3) {
+	Rational d;
+
+	d.num(4);
+	d.den(-8);
+
+	EXPECT_EQ(d.num(), -1);
+	EXPECT_EQ(d.den(), 2);
+}
+
+
 
 
 TEST(MathOps, Addition) {

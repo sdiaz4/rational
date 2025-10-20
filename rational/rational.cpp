@@ -105,14 +105,34 @@ void Rational::den(int d) {
 	if (d == 0) {
 		throw std::domain_error("Denominator can not be zero");
 	}
-	
+
+	int den = denominator;
+	int num = numerator;
+
 	denominator = d;
-	simplify(numerator, denominator);
-		
+	try {
+		simplify(numerator, denominator);
+	}
+	catch (...) {
+		denominator = den;
+		numerator = num;
+		throw;
+	}
+			
 }
 void Rational::num(int n) {
+	int num = numerator;
+	int den = denominator;
+
 	numerator = n;
-	simplify(numerator, denominator);
+	try {
+		simplify(numerator, denominator);
+	}
+	catch (...) {
+		numerator = num;
+		denominator = den;
+		throw;
+	}
 }
 
 //MATHOPS
