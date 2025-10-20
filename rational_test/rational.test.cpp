@@ -211,6 +211,41 @@ TEST(ConvertOps, Double) {
 	EXPECT_EQ(a.den(), 1);
 }
 
+TEST(ConvertOps, RationalPlusRational) {
+	Rational a{ 3.0 };
+	Rational b{ 3, 4 };
+
+	Rational Result = a + b;
+	EXPECT_EQ(Result.num(), 15);
+	EXPECT_EQ(Result.den(), 4);
+}
+
+TEST(ConvertOps, DoublePlusRational) {
+	Rational a{ 3, 4 };
+	
+
+	Rational Result = 3 + a;
+	EXPECT_EQ(Result.num(), 15);
+	EXPECT_EQ(Result.den(), 4);
+}
+
+TEST(ConvertOps, DoubleEqualRational) {
+	Rational a{ 3, 1 };
+
+
+	EXPECT_TRUE(3.0 == a);
+}
+
+TEST(ConvertOps, DoubleNotEqualRational) {
+	Rational a{ 3, 1 };
+
+
+	EXPECT_TRUE(4.0 != a);
+}
+
+
+
+
 
 TEST(IoOps, OutputOne) {
 	Rational a{ 3, 4};

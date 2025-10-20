@@ -67,3 +67,84 @@ private:
 
 
 };
+
+inline
+Rational operator+(int const& lhs, Rational const& rhs) {
+	return (Rational(lhs) + rhs);
+}
+inline
+Rational operator+(double const& lhs, Rational const& rhs) {
+	return (Rational(lhs) + rhs);
+}
+inline
+bool operator==(int const& lhs, Rational const& rhs) {
+	return (Rational(lhs) == rhs);
+}
+inline
+bool operator==(double const& lhs, Rational const& rhs) {
+	return (Rational(lhs) == rhs);
+}
+inline
+bool operator!=(int const& lhs, Rational const& rhs) {
+	return (Rational(lhs) != rhs);
+}
+inline
+bool operator!=(double const& lhs, Rational const& rhs) {
+	return (Rational(lhs) != rhs);
+}
+inline
+bool operator>(int const& lhs, Rational const& rhs) {
+	return (Rational(lhs) > rhs);
+}
+inline
+bool operator>(double const& lhs, Rational const& rhs) {
+	return (Rational(lhs) > rhs);
+}
+inline
+bool operator<(int const& lhs, Rational const& rhs) {
+	return (Rational(lhs) < rhs);
+}
+inline
+bool operator<(double const& lhs, Rational const& rhs) {
+	return (Rational(lhs) < rhs);
+}
+inline
+bool operator<=(int const& lhs, Rational const& rhs) {
+	return (Rational(lhs) <= rhs);
+}
+inline
+bool operator<=(double const& lhs, Rational const& rhs) {
+	return (Rational(lhs) <= rhs);
+}
+inline
+bool operator>=(int const& lhs, Rational const& rhs) {
+	return (Rational(lhs) >= rhs);
+}
+inline
+bool operator>=(double const& lhs, Rational const& rhs) {
+	return (Rational(lhs) >= rhs);
+}
+inline
+Rational operator-(int const& lhs, Rational const& rhs) {
+	return (Rational(lhs) - rhs);
+}
+inline
+Rational operator-(double const& lhs, Rational const& rhs) {
+	return (Rational(lhs) - rhs);
+}
+inline
+Rational operator*(int const& lhs, Rational const& rhs) {
+	return (Rational(lhs) * rhs);
+}
+inline
+Rational operator*(double const& lhs, Rational const& rhs) {
+	return (Rational(lhs) * rhs);
+}
+inline
+Rational operator/(int const& lhs, Rational const& rhs) {
+	return (Rational(lhs) / rhs);
+}
+inline
+Rational operator/(double const& lhs, Rational const& rhs) {
+	return (Rational(lhs) / rhs);
+}

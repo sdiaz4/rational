@@ -65,7 +65,7 @@ int Rational::LCM(int num, int den) {
 }
 
 Rational::Rational() : numerator(0), denominator(1) {}
-Rational::Rational(int n) : numerator(n), denominator(0) {}
+Rational::Rational(int n) : numerator(n), denominator(1) {}
 Rational::Rational(double d) {
 	numerator = (int)(d * doubleBase);
 	denominator = doubleBase;
@@ -244,7 +244,7 @@ bool Rational::operator <=(Rational const& rhs) const {
 }
 //IOSTREAM
 std::ostream& operator <<(std::ostream& out, Rational const& Rational) {
-	out << Rational.numerator << '/' << Rational.denominator;
+	out << Rational.num() << '/' << Rational.den();
 	return out;
 }
 std::istream& operator >>(std::istream& in, Rational& Rational) {
@@ -252,87 +252,12 @@ std::istream& operator >>(std::istream& in, Rational& Rational) {
 	return in;
 }
 
-////CONVERSIONOPS
-//inline 
-//bool operator==(Rational const& lhs, int const& rhs) {
-//	return (lhs == rhs);
-//}
-//inline
-//bool operator==(Rational const& lhs, double const& rhs) {
-//	return (lhs == rhs);
-//}
-//inline
-//bool operator!=(Rational const& lhs, int const& rhs) {
-//	return (lhs != rhs);
-//}
-//inline
-//bool operator!=(Rational const& lhs, double const& rhs) {
-//	return (lhs != rhs);
-//}
-//inline
-//bool operator>(Rational const& lhs, int const& rhs) {
-//	return (lhs > rhs);
-//}
-//inline
-//bool operator>(Rational const& lhs, double const& rhs) {
-//	return (lhs > rhs);
-//}
-//inline
-//bool operator<(Rational const& lhs, int const& rhs) {
-//	return (lhs < rhs);
-//}
-//inline
-//bool operator<(Rational const& lhs, double const& rhs) {
-//	return (lhs < rhs);
-//}
-//inline
-//bool operator<=(Rational const& lhs, int const& rhs) {
-//	return (lhs <= rhs);
-//}
-//inline
-//bool operator<=(Rational const& lhs, double const& rhs) {
-//	return (lhs <= rhs);
-//}
-//inline
-//bool operator>=(Rational const& lhs, int const& rhs) {
-//	return (lhs >= rhs);
-//}
-//inline
-//bool operator>=(Rational const& lhs, double const& rhs) {
-//	return (lhs >= rhs);
-//}
-//
-//inline
-//bool operator+(Rational const& lhs, int const& rhs) {
-//	return (lhs + rhs);
-//}
-//inline
-//bool operator+(Rational const& lhs, double const& rhs) {
-//	return (lhs + rhs);
-//}
-//inline
-//bool operator-(Rational const& lhs, int const& rhs) {
-//	return (lhs - rhs);
-//}
-//inline
-//bool operator-(Rational const& lhs, double const& rhs) {
-//	return (lhs - rhs);
-//}
-//inline
-//bool operator*(Rational const& lhs, int const& rhs) {
-//	return (lhs * rhs);
-//}
-//inline
-//bool operator*(Rational const& lhs, double const& rhs) {
-//	return (lhs * rhs);
-//}
-//inline
-//bool operator/(Rational const& lhs, int const& rhs) {
-//	return (lhs / rhs);
-//}
-//inline
-//bool operator/(Rational const& lhs, double const& rhs) {
-//	return (lhs / rhs);
-//}
-//
+//CONVERSIONOPS
+
+
+
+
+
+
+
 
