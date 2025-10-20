@@ -177,10 +177,7 @@ Rational Rational::operator --(int) {
 	--(*this);
 	return i;
 }
-Rational Rational::operator=(Rational rhs) {
-	*this = rhs;
-	return *this;
-}
+
 
 //MATHASSIGNMENTOPS
 Rational& Rational::operator +=(Rational const& src) {
